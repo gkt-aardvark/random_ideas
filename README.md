@@ -1,2 +1,2 @@
 # random_ideas
-just random code people may be able to use
+Just a spot to toss in some random stuff people may be able to use.
