@@ -45,14 +45,14 @@ uploads.set_index('day', inplace=True)
 
 #drop useless columns... well, useless for this
 uploads.drop(columns = ['fileName',
-						'fileSize', 
-						'fileLines',
-						'status', 
-						'lastupdt',
-						'percentDone',
-						'timeParsing', 
-						'firstTime'], 
-			inplace=True)
+			'fileSize', 
+			'fileLines',
+			'status', 
+			'lastupdt',
+			'percentDone',
+			'timeParsing', 
+			'firstTime'], 
+		inplace=True)
 
 #drop duplicates, just in case
 uploads.drop_duplicates(inplace=True)
