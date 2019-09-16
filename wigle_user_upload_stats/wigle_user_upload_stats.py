@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import requests
+import sys
 import pandas as pd
 from requests.auth import HTTPBasicAuth
 
@@ -27,7 +28,11 @@ print ('Downloading user uploads stats...')
 while True:
 	request = requests.get(f"https://api.wigle.net/api/v2/file/transactions?pagestart={start}&pageend={end}",
 							auth=HTTPBasicAuth(name, password))
-	query = request.json()
+	try:
+		query = request.json()
+	except:
+		print ('[-] Authentication incorrect. Exiting...')
+		sys.exit(1)
 	if not (len(query['results']) == 0):
 		for result in query['results']:
 			uploads = uploads.append(pd.DataFrame(result, index=[0]))
