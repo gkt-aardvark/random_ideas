@@ -31,8 +31,10 @@ conn = sqlite3.connect(input_file)
 conn.text_factory = lambda x: str(x, 'iso-8859-1')
 query = 'SELECT ts_sec, sourcemac FROM packets;'
 
-#read the data into a pandas dataframe
-kismet = pd.read_sql_query(query, conn)
+#read the data into a pandas dataframe, using chunksize in case the db is very large
+kismet = pd.DataFrame()
+for chunk in pd.read_sql_query(query, conn, chunksize=10000):
+	kismet = kismet.append(chunk)
 conn.close()
 
 #convert times to pandas datetimes
