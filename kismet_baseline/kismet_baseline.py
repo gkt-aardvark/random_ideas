@@ -28,7 +28,7 @@ interval = results.interval + 's'#depending on length of capture, maybe 300 seco
 
 #set up connection to db
 conn = sqlite3.connect(input_file)
-conn.text_factory = str
+conn.text_factory = lambda x: str(x, 'iso-8859-1')
 query = 'SELECT ts_sec, sourcemac FROM packets;'
 
 #read the data into a pandas dataframe
