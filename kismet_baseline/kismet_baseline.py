@@ -8,16 +8,16 @@ import pandas as pd
 parser = argparse.ArgumentParser()
 
 parser.add_argument('-i', action='store', dest='input_file',
-					help='Specify the input file; must be Kismet DB',
-					required=True)
+			help='Specify the input file; must be Kismet DB',
+			required=True)
 
 parser.add_argument('-o', action='store', dest='output_file',
-					help='Specify the output text file', default='baseline_macs.txt',
-					required=False)
+			help='Specify the output text file', default='baseline_macs.txt',
+			required=False)
 					
 parser.add_argument('-t', action='store', dest='interval',
-					help='Specify the time interval; default is 300 seconds (5 mins)',
-					required=False)
+			help='Specify the time interval; default is 300 seconds (5 mins)',
+			required=False)
 					
 results = parser.parse_args()
 
